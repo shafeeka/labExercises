@@ -14,7 +14,7 @@ public class Application {
 	public static void main(String[] args) {
 
 		ApplicationContext ctx = SpringApplication.run(Application.class, args);
-		CartService cartService = ctx.getBean(CartServiceImpl.class);
+		CartServiceImpl cartService = ctx.getBean(CartServiceImpl.class);
 		cartService.addItemToCart(1,1);
 		cartService.addItemToCart(2,1);
 		cartService.addItemToCart(3,2);
@@ -24,6 +24,12 @@ public class Application {
 		System.out.println(cartService.getAllItemsInCart());
 
 		System.out.println("total cost " + cartService.calculateCartCost());
+
+		System.out.println(cartService.contactEmail);
+
+		System.setProperty("spring.config.name", "application");
+		ResourcesBean rBean = ctx.getBean(ResourcesBean.class);
+		System.out.println(rBean);
 
 	}
 

@@ -1,0 +1,20 @@
+onlineRetailer:
+    salesTaxRate: 0.20
+    deliveryCharge:
+        normal: 2.50
+        threshold: 3000
+---
+spring:
+    profiles: production
+resources:
+    db: Oracle
+    logs: //PROD_SERVER/logs/
+    secure: true
+---
+spring:
+    profiles:
+        active: development
+resources:
+    db: H2
+    logs: C:\temp\logs\
+    secure: false
